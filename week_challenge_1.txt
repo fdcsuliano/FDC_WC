@@ -1,3 +1,6 @@
+Pig Latin (25 Points) - ( PHP )
+----------------------------------------------
+
 <?php
     function translateToPiglatin($words) {
         $words = explode(" ", $words);
@@ -14,8 +17,7 @@
                 return $word . "ay";
             }
         }
-        //begin with consonant sounds all letters before the initial vowel are placed at the end of
-        //the word sequence. Then, "ay" is added
+        //begin with consonant sounds all letters before the initial vowel are placed at the end of the word sequence. Then, "ay" is added
         return substr($word, 1) . substr($word, 0, 1) . "ay";
     }
 
@@ -23,6 +25,11 @@
  echo translateToPiglatin("pig")."\n";
  echo translateToPiglatin("are");
 ?>
+
+
+Fibonacci Series (25 Points) - ( Javascript )
+----------------------------------------------
+
 <script>
 // declare n count
 let n = 4;
