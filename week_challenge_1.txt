@@ -2,28 +2,30 @@ Pig Latin (25 Points) - ( PHP )
 ----------------------------------------------
 
 <?php
-    function translateToPiglatin($words) {
-        $words = explode(" ", $words);
-        return implode(" ", array_map("makePiglatin", $words));
-    }
 
-      function makePiglatin($word)
-    {
-        $vowels = ["a", "e", "i", "o", "u"];
-
-        foreach($vowels as $vowel) {
-            //For words that begin with vowel sounds add "ay"
-            if (substr($word, 0, strlen($vowel)) === $vowel) {
-                return $word . "ay";
-            }
+//convert word to Piglatin
+function makePiglatin($word) {
+    $vowels = ["a", "e", "i", "o", "u"];
+    foreach($vowels as $vowel) {
+        //For wordss that begin with vowel sounds add "ay"
+        if (substr($word, 0, strlen($vowel)) === $vowel) {
+            echo $word . "ay \n";
         }
-        //begin with consonant sounds all letters before the initial vowel are placed at the end of the word sequence. Then, "ay" is added
-        return substr($word, 1) . substr($word, 0, 1) . "ay";
     }
+    //begin with consonant sounds all letters before the initial vowel are placed at the end of the words sequence. Then, "ay" is added
+    $pos = strcspn(strtolower($word), "aeiou");
+    echo substr($word, $pos). substr($word, 0, $pos). "ay \n";
+}
 
-// input word here
- echo translateToPiglatin("pig")."\n";
- echo translateToPiglatin("are");
+//convert sentece to Piglatin
+  function translateToPiglatin($sentence) {
+    $words = explode(" ", $sentence);
+    return implode(" ", array_map("makePiglatin", $words));
+}
+
+// input words here
+translateToPiglatin("banana stay");
+makePiglatin("happy");
 ?>
 
 
@@ -33,12 +35,14 @@ Fibonacci Series (25 Points) - ( Javascript )
 <script>
 // declare n count
 let n = 4;
+let series = [];
 let firstNumber = 0, secondNumber = 1, totalNumber;
 //loop into Fibonacci sequence
 for (let i = 1; i <= n; i++) {
-  console.log(firstNumber);
+  series.push(firstNumber);
   totalNumber = firstNumber + secondNumber;
   firstNumber = secondNumber;
   secondNumber = totalNumber;
 }
+console.log(series);
 </script>
